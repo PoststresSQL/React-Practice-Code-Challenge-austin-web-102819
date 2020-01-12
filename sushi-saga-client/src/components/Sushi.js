@@ -1,20 +1,39 @@
-import React, { Fragment } from 'react'
+import React, { useState } from 'react'
 
-const Sushi = (props) => {
+const Sushi = ({
+  addToTableSushi,
+  budget,
+  sushi,
+  sushi: {
+    img_url,
+    name,
+    price,
+  },
+  tableSushi
+}) => {
+  const [eaten, setEaten] = useState(false)
+  const totalCost = tableSushi.reduce((total, sushi) => (total += sushi.price), 0)
+
+
   return (
     <div className="sushi">
-      <div className="plate" 
-           onClick={/* Give me a callback! */ null}>
-        { 
-          /* Tell me if this sushi has been eaten! */ 
-          false ?
-            null
-          :
-            <img src={/* Give me an image source! */ } width="100%" />
+      <div className="plate"
+        onClick={() => {
+          if (budget > (totalCost + price)) {
+            setEaten(true)
+            addToTableSushi(sushi)
+          } else {
+            alert('broke ass nigga alert')
+          }
+        }}>
+        {
+          eaten
+            ? null
+            : <img src={img_url} width="100%" alt={name} />
         }
       </div>
       <h4 className="sushi-details">
-        {/* Give me a name! */} - ${/* Give me a price! */}
+        {name} - ${price}
       </h4>
     </div>
   )
