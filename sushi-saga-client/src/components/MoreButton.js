@@ -1,9 +1,14 @@
 import React from 'react'
 
-const MoreButton = (props) => {
-    return <button onClick={/* Fill me in! */ null}>
-            More sushi!
-          </button>
+const MoreButton = ({ updaters: { setStartIndex, setEndIndex }, indices: { startIndex, endIndex } }) => {
+  return (
+    <button onClick={() => {
+      setStartIndex(startIndex + 4)
+      setEndIndex(endIndex + 4)
+    }}>
+      More sushi!
+    </button>
+  )
 }
 
 export default MoreButton
