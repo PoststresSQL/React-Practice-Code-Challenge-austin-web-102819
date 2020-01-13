@@ -20,13 +20,16 @@ const Sushi = ({
       <div className="plate"
         onClick={() => {
           const sushiIndex = sushiArr.indexOf(sushi)
-          if (budget > (totalCost + price)) {
+          if (budget >= (totalCost + price)) {
             // splice starting at index, end at 1
             setEaten(true)
             sushiArr.splice(sushiIndex, 1)
             addToTableSushi(sushi)
           } else {
-            alert('broke ass nigga alert')
+            document
+              .querySelector('#modal__container')
+              .classList
+              .add('show')
           }
         }}>
         {
