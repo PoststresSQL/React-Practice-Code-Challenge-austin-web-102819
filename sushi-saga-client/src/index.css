@@ -1,9 +1,36 @@
+/* General Els */
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
 }
 
+/* General IDs */
+
+#modal__container {
+  display: none;
+}
+
+/* General Classes */
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.8);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right:0;
+  top: 0;
+}
+
+.show {
+  align-items: center;
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Heirarchy Styling */
 
 .app {
   display: grid;
